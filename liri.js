@@ -10,7 +10,7 @@ switch (process.argv[2]) {
         break;
     case "spotify-this-song":
         // code block
-        songName = process.argv[3];
+        songName = process.argv.slice(3).join(" ");;
         spotify.search({ type: 'track', query: songName, limit: '1' }, function (err, data) {
             if (err) {
                 return console.log('Error occurred: ' + err);
@@ -24,7 +24,7 @@ switch (process.argv[2]) {
         break;
     case "movie-this":
         //code block
-        var movieName = process.argv[3];
+        var movieName = process.argv.slice(3).join(" ");;
 
 
         var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
