@@ -3,6 +3,7 @@ var Spotify = require('node-spotify-api');
 var axios = require("axios");
 var keys = require("./keys");
 var spotify = new Spotify(keys.spotify);
+var moment = require('moment');
 
 switch (process.argv[2]) {
     case "concert-this":
@@ -14,9 +15,9 @@ switch (process.argv[2]) {
 
         axios.get(queryUrl).then(
             function (response) {
-                console.log("Name of the venue: " + response.eventdata);
-                // console.log("Venue location: " + response.]);
-                // console.log("Date of the Event:  " + response.;
+                console.log("Name of the venue: " + response.data[0].venue.name);
+                console.log("Venue location: " + response.data[0].venue.city);
+                console.log("Date of the Event:  " + moment(response.data[0].datetime).format("MM/DD/YYYY"));
             })
             .catch(function (error) {
                 if (error.response) {
