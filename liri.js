@@ -15,9 +15,12 @@ switch (process.argv[2]) {
 
         axios.get(queryUrl).then(
             function (response) {
-                console.log("Name of the venue: " + response.data[0].venue.name);
-                console.log("Venue location: " + response.data[0].venue.city);
-                console.log("Date of the Event:  " + moment(response.data[0].datetime).format("MM/DD/YYYY"));
+                for (i = 0; i < response.data.length; i++){
+                console.log("Name of the venue: " + response.data[i].venue.name);
+                console.log("Venue location: " + response.data[i].venue.city);
+                console.log("Date of the Event:  " + moment(response.data[i].datetime).format("MM/DD/YYYY"));
+                console.log("---------------------------");
+                }
             })
             .catch(function (error) {
                 if (error.response) {
