@@ -7,6 +7,32 @@ var spotify = new Spotify(keys.spotify);
 switch (process.argv[2]) {
     case "concert-this":
         // code block
+        var artistName = process.argv.slice(3).join(" ");;
+
+
+        var queryUrl = "https://rest.bandsintown.com/artists/" + artistName + "/events?app_id=codingbootcamp";
+
+        axios.get(queryUrl).then(
+            function (response) {
+                console.log("Name of the venue: " + response.eventdata);
+                // console.log("Venue location: " + response.]);
+                // console.log("Date of the Event:  " + response.;
+            })
+            .catch(function (error) {
+                if (error.response) {
+                    console.log("---------------Data---------------");
+                    console.log(error.response.data);
+                    console.log("---------------Status---------------");
+                    console.log(error.response.status);
+                    console.log("---------------Status---------------");
+                    console.log(error.response.headers);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log("Error", error.message);
+                }
+                console.log(error.config);
+            });
         break;
     case "spotify-this-song":
         // code block
