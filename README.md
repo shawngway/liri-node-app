@@ -4,7 +4,7 @@ This node.js is using:
 -spotify
 -ombapi
 Here is an .mp4 video to show the Liri at work.
-there is a videoin the file but having trouble placing in read.md
+https://github.com/shawngway/liri-node-app/raw/master/Liri.mp4
 
 
 by: shawn, galloway
